@@ -45,6 +45,7 @@ var allowedHosts = map[string]bool{
 	"api.anthropic.com":                 true,
 	"generativelanguage.googleapis.com": true,
 	"openrouter.ai":                     true,
+	"opencode.ai":                       true,
 	"localhost":                         true,
 	"127.0.0.1":                         true,
 }
