@@ -92,14 +92,9 @@ func runAgentCommand(args []string) {
 
 	printBanner()
 
-	// Require ANTHROPIC_API_KEY - users must provide their own key
-	if os.Getenv("ANTHROPIC_API_KEY") == "" {
-		fmt.Fprintf(os.Stderr, "\n  \033[1;31mError:\033[0m ANTHROPIC_API_KEY is not set.\n\n")
-		fmt.Fprintf(os.Stderr, "  You must provide your own Anthropic API key to use Context Gateway.\n\n")
-		fmt.Fprintf(os.Stderr, "  Option 1: Export it directly\n")
-		fmt.Fprintf(os.Stderr, "    export ANTHROPIC_API_KEY=sk-ant-...\n\n")
-		fmt.Fprintf(os.Stderr, "  Option 2: Add it to your .env file\n")
-		fmt.Fprintf(os.Stderr, "    echo 'ANTHROPIC_API_KEY=sk-ant-...' >> ~/.config/context-gateway/.env\n\n")
+	// Ensure API key is available (from env or OAuth)
+	if !ensureAPIKey() {
+		printAPIKeyError()
 		os.Exit(1)
 	}
 
