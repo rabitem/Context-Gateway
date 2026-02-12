@@ -49,6 +49,8 @@ func detectProvider(path string, headers http.Header) Provider {
 			return ProviderGemini
 		case "ollama":
 			return ProviderOllama
+		case "zenai":
+			return ProviderZenAI
 		}
 	}
 

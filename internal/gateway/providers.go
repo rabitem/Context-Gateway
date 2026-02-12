@@ -63,6 +63,12 @@ var Providers = map[string]ProviderConfig{
 		DefaultPath: "/v1/chat/completions",
 		Paths:       []string{}, // Uses OpenAI paths, detected by API key prefix
 	},
+	"zenai": {
+		Name:        "zenai",
+		BaseURL:     envOrDefault("ZENAI_PROVIDER_URL", "https://api.z.ai/api/anthropic"),
+		DefaultPath: "/v1/messages",
+		Paths:       []string{"/v1/messages", "/v1/chat/completions"},
+	},
 }
 
 // GetProviderByPath returns the provider config that matches the path.

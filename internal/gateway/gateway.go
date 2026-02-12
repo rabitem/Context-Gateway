@@ -53,6 +53,10 @@ var allowedHosts = map[string]bool{
 	"opencode.ai":   true,
 	"openrouter.ai": true,
 
+	// Zen AI
+	"api.z.ai": true,
+	"z.ai":      true,
+
 	// Popular LLM providers
 	"api.together.ai":       true,
 	"api.groq.com":          true,

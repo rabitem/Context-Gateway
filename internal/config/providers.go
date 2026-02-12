@@ -29,6 +29,7 @@ const (
 	ProviderAnthropic = "anthropic"
 	ProviderGemini    = "gemini"
 	ProviderOpenAI    = "openai"
+	ProviderZenAI     = "zenai"
 )
 
 // GetEndpoint returns the endpoint URL for a provider.
@@ -51,6 +52,8 @@ func ResolveProviderEndpoint(provider, model string) string {
 		return fmt.Sprintf("https://generativelanguage.googleapis.com/v1beta/models/%s:generateContent", model)
 	case ProviderOpenAI:
 		return "https://api.openai.com/v1/chat/completions"
+	case ProviderZenAI:
+		return "https://api.z.ai/api/anthropic/v1/messages"
 	default:
 		// Treat unknown providers as OpenAI-compatible
 		return "https://api.openai.com/v1/chat/completions"
